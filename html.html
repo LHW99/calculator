@@ -8,55 +8,65 @@
 </h1>
 <div id=calculator>
 
-<input type='text' id='screenEquations' class='screen' readonly><br>
+<div id='screenEquations' class='screen' value=""></div><br>
 
-<input type='text' id='screenNumbers' class='screen' readonly>
+<div id='screenNumbers' class='screen' value=""></div>
 
 <div id=container>
 
-<input type=button id=n1 class=nButton value="1">
+<input type=button id=1 class=nButton onClick="numb(this.id)"value="1">
 
-<input type=button id=n2 class=nButton value='2'>
+<input type=button id=2 class=nButton onClick="numb(this.id)" value='2'>
 
-<input type=button id=n3 class=nButton value='3'>
+<input type=button id=3 class=nButton onClick="numb(this.id)" value='3'>
 
-<input type=button id=nd class=nButton value='/'>
+<input type=button id=/ class=nButton onClick="numb(this.id)" value='/'>
 
-<input type=button id=n4 class=nButton value='4'>
+<input type=button id=4 class=nButton onClick="numb(this.id)" value='4'>
 
-<input type=button id=n5 class=nButton value='5'>
+<input type=button id=5 class=nButton onClick="numb(this.id)" value='5'>
 
-<input type=button id=n6 class=nButton value='6'>
+<input type=button id=6 class=nButton onClick="numb(this.id)" value='6'>
 
-<input type=button id=nm class=nButton value='*'>
+<input type=button id=* class=nButton onClick="numb(this.id)" value='*'>
 
-<input type=button id=n7 class=nButton value='7'>
+<input type=button id=7 class=nButton onClick="numb(this.id)" value='7'>
 
-<input type=button id=n8 class=nButton value='8'>
+<input type=button id=8 class=nButton onClick="numb(this.id)" value='8'>
 
-<input type=button id=n9 class=nButton value='9'>
+<input type=button id=9 class=nButton onClick="numb(this.id)" value='9'>
 
-<input type=button id=na class=nButton value='+'>
+<input type=button id=+ class=nButton onClick="numb(this.id)" value='+'>
 
-<input type=button id=nc class=nButton value='CLEAR'>
+<input type=button id=CLEAR class=nButton value='CLEAR'>
 
-<input type=button id=n0 class=nButton value='0'>
+<input type=button id=0 class=nButton onClick="numb(this.id)" value='0'>
 
-<input type=button id=ne class=nButton value='='>
+<input type=button id=equate class=nButton value='='>
 
-<input type=button id=ns class=nButton value='-'>
+<input type=button id=- class=nButton onClick="numb(this.id)" value='-'>
 
 </div>
 </div>
 
 <script>
 
-function calc(){
-	if (typeof(w/e is last in textbox) !== 'number'){
-		then add it to textbox
-	}
-	else if (typeof(w/e is last in textbox) ==='number')
-}
+let but = document.getElementById('1');
+let butVal = but.value;
+let disp = "";
+
+//.addEventListener('click', () => {
+	//alert('ay');
+//})
+
+function numb(clicked_id){
+	disp += clicked_id;
+	document.getElementById('screenEquations').innerHTML = disp;}
+
+
+//but.addEventListener('click', () => {
+//	numb();
+//})
 
 </script>
 
