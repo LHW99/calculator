@@ -38,11 +38,11 @@
 
 <input type=button id=+ class=nButton onClick="numb(this.id)" value='+'>
 
-<input type=button id=CLEAR class=nButton value='CLEAR'>
+<input type=button id=CLEAR class=nButton onClick="erase()" value='CLEAR'>
 
 <input type=button id=0 class=nButton onClick="numb(this.id)" value='0'>
 
-<input type=button id=equate class=nButton value='='>
+<input type=button id=equate class=nButton onClick="calc()" value='='>
 
 <input type=button id=- class=nButton onClick="numb(this.id)" value='-'>
 
@@ -63,10 +63,16 @@ function numb(clicked_id){
 	disp += clicked_id;
 	document.getElementById('screenEquations').innerHTML = disp;}
 
+function erase(){
+	disp = "";
+	document.getElementById('screenEquations').innerHTML = "";
+	document.getElementById('screenNumbers').innerHTML = "";
+}
 
-//but.addEventListener('click', () => {
-//	numb();
-//})
+function calc(){
+	finalNumber = eval(disp);
+	document.getElementById('screenNumbers').innerHTML = finalNumber;
+}
 
 </script>
 
