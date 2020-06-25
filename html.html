@@ -3,46 +3,56 @@
 
 <link rel='stylesheet' href='stylesheet.css'>
 
+
+<div id=calculator>
+
 <h1>
 	BEDMAS Calculator
 </h1>
-<div id=calculator>
-
+<div id=topScreen>
 <div id='screenEquations' class='screen' value=""></div><br>
-
 <div id='screenNumbers' class='screen' value=""></div>
+</div>
 
 <div id=container>
 
-<input type=button id=1 class=nButton onClick="numb(this.id)"value="1">
+<input type=button id='(' class=nButton onClick="numb(this.id)"value="(">
 
-<input type=button id=2 class=nButton onClick="numb(this.id)" value='2'>
+<input type=button id=')' class=nButton onClick="numb(this.id)"value=")">
 
-<input type=button id=3 class=nButton onClick="numb(this.id)" value='3'>
-
-<input type=button id=/ class=nButton onClick="numb(this.id)" value='/'>
-
-<input type=button id=4 class=nButton onClick="numb(this.id)" value='4'>
-
-<input type=button id=5 class=nButton onClick="numb(this.id)" value='5'>
-
-<input type=button id=6 class=nButton onClick="numb(this.id)" value='6'>
-
-<input type=button id=* class=nButton onClick="numb(this.id)" value='*'>
-
-<input type=button id=7 class=nButton onClick="numb(this.id)" value='7'>
-
-<input type=button id=8 class=nButton onClick="numb(this.id)" value='8'>
-
-<input type=button id=9 class=nButton onClick="numb(this.id)" value='9'>
-
-<input type=button id=+ class=nButton onClick="numb(this.id)" value='+'>
+<input type=button id=DEL class=nButton onClick="del()" value="DEL">
 
 <input type=button id=CLEAR class=nButton onClick="erase()" value='CLEAR'>
 
-<input type=button id=0 class=nButton onClick="numb(this.id)" value='0'>
+<input type=button id=1 class=nButton onClick="numb(this.id)"value="1" data-key='49'>
 
-<input type=button id=equate class=nButton onClick="calc()" value='='>
+<input type=button id=2 class=nButton onClick="numb(this.id)" value='2' data-key='50'>
+
+<input type=button id=3 class=nButton onClick="numb(this.id)" value='3' data-key='51'>
+
+<input type=button id=/ class=nButton onClick="numb(this.id)" value='/'>
+
+<input type=button id=4 class=nButton onClick="numb(this.id)" value='4' data-key='52'>
+
+<input type=button id=5 class=nButton onClick="numb(this.id)" value='5' data-key='53'>
+
+<input type=button id=6 class=nButton onClick="numb(this.id)" value='6' data-key='54'>
+
+<input type=button id=* class=nButton onClick="numb(this.id)" value='*'>
+
+<input type=button id=7 class=nButton onClick="numb(this.id)" value='7' data-key='55'>
+
+<input type=button id=8 class=nButton onClick="numb(this.id)" value='8' data-key='56'>
+
+<input type=button id=9 class=nButton onClick="numb(this.id)" value='9' data-key='57'>
+
+<input type=button id=+ class=nButton onClick="numb(this.id)" value='+'>
+
+<input type=button id='.' class=nButton onClick="decimal(this.id)" value='.' data-key='190'>
+
+<input type=button id=0 class=nButton onClick="numb(this.id)" value='0' data-key='48'>
+
+<input type=button id=equate class=nButton onClick="calc()" value='=' data-key='13'>
 
 <input type=button id=- class=nButton onClick="numb(this.id)" value='-'>
 
@@ -51,17 +61,21 @@
 
 <script>
 
-let but = document.getElementById('1');
-let butVal = but.value;
 let disp = "";
-
-//.addEventListener('click', () => {
-	//alert('ay');
-//})
 
 function numb(clicked_id){
 	disp += clicked_id;
 	document.getElementById('screenEquations').innerHTML = disp;}
+
+function decimal(clicked_id){
+	if (disp.includes('.') === true){
+		disp += ""
+	}
+	else if (disp.includes('.') === false){
+		disp += clicked_id;
+		document.getElementById('screenEquations').innerHTML = disp;
+	}
+}
 
 function erase(){
 	disp = "";
@@ -71,7 +85,20 @@ function erase(){
 
 function calc(){
 	finalNumber = eval(disp);
+	if (finalNumber === undefined){
+		document.getElementById('screenNumbers').innerHTML = "";
+	}
+	else if (finalNumber === Infinity){
+		alert('Stop dividing by 0...')
+	}
+	else{
 	document.getElementById('screenNumbers').innerHTML = finalNumber;
+	}
+}
+
+function del(){
+	disp = disp.slice(0, -1);
+	document.getElementById('screenEquations').innerHTML = disp;
 }
 
 </script>
