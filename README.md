@@ -1,1 +1,1 @@
-My attempt at making a working calculator.
+Making a BEDMAS calculator using HTML, CSS, and Javascript.
